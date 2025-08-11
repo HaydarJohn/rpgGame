@@ -3,3 +3,6 @@ file.sh
 shell.nix
 OpenGL.pdf
 .vscode
+.cache/
+vcpkg_installed/
+build/
