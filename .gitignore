@@ -1,2 +1,5 @@
 *.out
 file.sh
+shell.nix
+OpenGL.pdf
+.vscode
