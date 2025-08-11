@@ -151,11 +151,11 @@ int main()
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-    glBindVertexArray(VAO);
+    
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
+glBindVertexArray(VAO);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     
@@ -174,9 +174,7 @@ int main()
     
 
 
-    glUseProgram(shaderProgram);
-    glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES,0,3);
+   
 
     std::cout << glGetError() << std::endl;
     while (!glfwWindowShouldClose(window))
@@ -188,6 +186,10 @@ int main()
 
         glClearColor(0.537f,0.812f,0.941f,1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+ glUseProgram(shaderProgram);
+    glBindVertexArray(VAO);
+    glDrawArrays(GL_TRIANGLES,0,3);
 
         // check even swap buffers
         glfwPollEvents();
